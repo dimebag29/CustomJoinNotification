@@ -70,28 +70,28 @@ def UpdateNowWorldInfo(s):
     # 引数sとして渡される文字列例
     """
     <GroupPublic>
-    Joining wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~group(grp_00000000-0000-0000-0000-000000000000)~groupAccessType(public)~region(use)
+    wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~group(grp_00000000-0000-0000-0000-000000000000)~groupAccessType(public)~region(use)
 
     <Group+>
-    Joining wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~group(grp_00000000-0000-0000-0000-000000000000)~groupAccessType(plus)~region(us)
+    wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~group(grp_00000000-0000-0000-0000-000000000000)~groupAccessType(plus)~region(us)
 
     <Group>
-    Joining wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~group(grp_00000000-0000-0000-0000-000000000000)~groupAccessType(members)~region(eu)
+    wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~group(grp_00000000-0000-0000-0000-000000000000)~groupAccessType(members)~region(eu)
 
     <Public>
-    Joining wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~region(eu)
+    wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~region(eu)
 
     <Freiends+>
-    Joining wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~hidden(usr_00000000-0000-0000-0000-000000000000)~region(jp)
+    wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~hidden(usr_00000000-0000-0000-0000-000000000000)~region(jp)
 
     <Freiends>
-    Joining wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~friends(usr_00000000-0000-0000-0000-000000000000)~region(jp)
+    wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~friends(usr_00000000-0000-0000-0000-000000000000)~region(jp)
 
     <Invite+>
-    Joining wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~private(usr_00000000-0000-0000-0000-000000000000)~canRequestInvite~region(jp)
+    wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~private(usr_00000000-0000-0000-0000-000000000000)~canRequestInvite~region(jp)
 
     <Invite>
-    Joining wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~private(usr_00000000-0000-0000-0000-000000000000)~region(jp)
+    wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:00000~private(usr_00000000-0000-0000-0000-000000000000)~region(jp)
     """
 
     global NowWorldInfo                                                         # 関数内で変数の値を変更したい場合はglobalにする
