@@ -1,6 +1,6 @@
 # ==============================================================================================================
-# 作成者:dimebag29 作成日:2023年11月19日 バージョン:v0.0
-# (Author:dimebag29 Creation date:November 19, 2023 Version:v0.0)
+# 作成者:dimebag29 作成日:2023年11月23日 バージョン:v0.1
+# (Author:dimebag29 Creation date:November 23, 2023 Version:v0.1)
 #
 # このプログラムのライセンスはCC0 (クリエイティブ・コモンズ・ゼロ)です。いかなる権利も保有しません。
 # (This program is licensed under CC0 (Creative Commons Zero). No rights reserved.)
@@ -27,6 +27,7 @@ import re
 import socket
 import json
 import copy
+import ctypes
 
 # 外部ライブラリ (External libraries)
 import win32gui                                                                 # Included in pywin32 Version:306
@@ -579,6 +580,14 @@ def AddWorldInfomationForPictureFileName():
 
 # 初期化
 # ==============================================================================================================
+
+# コンソール画面をクリックしてしまうとプログラムが中断される「簡易編集モード」を無効化する
+# 参考:【Python】スクリプトから簡易編集モードを無効にする https://qiita.com/suga__/items/6d9eb44e2d6b581fce22
+kernel32 = ctypes.windll.kernel32
+mode=0xFDB7 #簡易編集モードとENABLE_WINDOW_INPUT と ENABLE_VIRTUAL_TERMINAL_INPUT をOFFに
+kernel32.SetConsoleMode(kernel32.GetStdHandle(-10), mode)
+
+
 # コンソールで文字に色を付けてprintする用の色Dict 参考:Pythonのprintいろいろ 文字色 https://qiita.com/yuto16/items/cb2f812b0d966b6ae920
 color_dic = {"black":"\033[30m", "red":"\033[31m", "green":"\033[32m", "yellow":"\033[33m", "blue":"\033[34m", "end":"\033[0m"}
 
@@ -684,7 +693,7 @@ os.makedirs(MyLogFileSaveDir, exist_ok=True)                                    
 
 # ログファイル監視処理
 # ==============================================================================================================
-print("カスタムJoin通知 v0.0")
+print("カスタムJoin通知 v0.1")
 print("----------------------------------------------------------------")
 
 while True:
