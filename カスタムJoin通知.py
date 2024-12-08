@@ -1,6 +1,6 @@
 # ==============================================================================================================
-# 作成者:dimebag29 作成日:2023年11月23日 バージョン:v0.1
-# (Author:dimebag29 Creation date:November 23, 2023 Version:v0.1)
+# 作成者:dimebag29 作成日:2024年12月8日 バージョン:v0.2
+# (Author:dimebag29 Creation date:December 8, 2024 Version:v0.2)
 #
 # このプログラムのライセンスはCC0 (クリエイティブ・コモンズ・ゼロ)です。いかなる権利も保有しません。
 # (This program is licensed under CC0 (Creative Commons Zero). No rights reserved.)
@@ -602,8 +602,8 @@ ExeDir = os.path.dirname(sys.argv[0])                                           
 SearchWordList = [""] * 5                                                       # 検索ワードリストの要素数
 SearchWordList[0] = "Entering Room: "                                           # Joinしたワールド名 検索用
 SearchWordList[1] = "Joining wrld_"                                             # JoinしたワールドID 検索用
-SearchWordList[2] = "OnPlayerJoinComplete "                                     # Joinしたユーザ名 検索用
-SearchWordList[3] = "Unregistering "                                            # Leaveしたユーザ名 検索用
+SearchWordList[2] = "OnPlayerJoined"                                            # Joinしたユーザ名 検索用
+SearchWordList[3] = "OnPlayerLeft"                                              # Leaveしたユーザ名 検索用
 SearchWordList[4] = "Took screenshot to: "                                      # Camera, ScreenShotで写真撮った 検索用 (マルチレイヤで撮った写真はログに記録されない)
 
 LogFileDir = os.path.expanduser("~/AppData/LocalLow/VRChat/VRChat/")            # VRChatのログファイルが保存されるディレクトリ
@@ -693,7 +693,7 @@ os.makedirs(MyLogFileSaveDir, exist_ok=True)                                    
 
 # ログファイル監視処理
 # ==============================================================================================================
-print("カスタムJoin通知 v0.1")
+print("カスタムJoin通知 v0.2")
 print("----------------------------------------------------------------")
 
 while True:
@@ -779,21 +779,27 @@ while True:
             
             # Joinしたユーザ名を取得できた
             elif 2 == HitLineList[j][1]:
+
+                TempJoinUserName = HitLineList[j][2][27:].split(" (usr_")[0]
+
                 # ログ保存用文字列 追記
-                OutputLog += str(HitLineList[j][0]) + " Join  : " + HitLineList[j][2][33:] + "\n"
+                OutputLog += str(HitLineList[j][0]) + " Join  : " + TempJoinUserName + "\n"
                 # コンソール表示用文字列 追記
-                PrintLog  += str(HitLineList[j][0]) + color_dic["green"] + " Join" + color_dic["end"] + "  : " + HitLineList[j][2][33:] + "\n"
+                PrintLog  += str(HitLineList[j][0]) + color_dic["green"] + " Join" + color_dic["end"] + "  : " + TempJoinUserName + "\n"
                 # Join通知用ユーザ名リストにユーザ名 追記
-                NowJoinUserNameList.append(HitLineList[j][2][33:])
+                NowJoinUserNameList.append(TempJoinUserName)
             
             # Leaveしたユーザ名を取得できた
             elif 3 == HitLineList[j][1]:
+
+                TempLeftUserName = HitLineList[j][2][25:].split(" (usr_")[0]
+
                 # ログ保存用文字列 追記
-                OutputLog += str(HitLineList[j][0]) + " Leave : " + HitLineList[j][2][26:] + "\n"
+                OutputLog += str(HitLineList[j][0]) + " Leave : " + TempLeftUserName + "\n"
                 # コンソール表示用文字列 追記
-                PrintLog  += str(HitLineList[j][0]) + color_dic["red"] + " Leave" + color_dic["end"] + " : " + HitLineList[j][2][26:] + "\n"
+                PrintLog  += str(HitLineList[j][0]) + color_dic["red"] + " Leave" + color_dic["end"] + " : " + TempLeftUserName + "\n"
                 # Leave通知用ユーザ名リストにユーザ名 追記
-                NowLeaveUserNameList.append(HitLineList[j][2][26:])
+                NowLeaveUserNameList.append(TempLeftUserName)
             
             # 撮影した写真のパスを取得できた
             elif 4 == HitLineList[j][1]:                     
