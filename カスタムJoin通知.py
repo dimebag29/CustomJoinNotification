@@ -1,6 +1,6 @@
 # ==============================================================================================================
-# 作成者:dimebag29 作成日:2024年12月8日 バージョン:v0.2
-# (Author:dimebag29 Creation date:December 8, 2024 Version:v0.2)
+# 作成者:dimebag29 作成日:2024年12月14日 バージョン:v0.3
+# (Author:dimebag29 Creation date:December 14, 2024 Version:v0.3)
 #
 # このプログラムのライセンスはCC0 (クリエイティブ・コモンズ・ゼロ)です。いかなる権利も保有しません。
 # (This program is licensed under CC0 (Creative Commons Zero). No rights reserved.)
@@ -602,8 +602,8 @@ ExeDir = os.path.dirname(sys.argv[0])                                           
 SearchWordList = [""] * 5                                                       # 検索ワードリストの要素数
 SearchWordList[0] = "Entering Room: "                                           # Joinしたワールド名 検索用
 SearchWordList[1] = "Joining wrld_"                                             # JoinしたワールドID 検索用
-SearchWordList[2] = "OnPlayerJoined"                                            # Joinしたユーザ名 検索用
-SearchWordList[3] = "OnPlayerLeft"                                              # Leaveしたユーザ名 検索用
+SearchWordList[2] = "[Behaviour] OnPlayerJoined "                               # Joinしたユーザ名 検索用
+SearchWordList[3] = "[Behaviour] OnPlayerLeft "                                 # Leaveしたユーザ名 検索用
 SearchWordList[4] = "Took screenshot to: "                                      # Camera, ScreenShotで写真撮った 検索用 (マルチレイヤで撮った写真はログに記録されない)
 
 LogFileDir = os.path.expanduser("~/AppData/LocalLow/VRChat/VRChat/")            # VRChatのログファイルが保存されるディレクトリ
@@ -693,7 +693,7 @@ os.makedirs(MyLogFileSaveDir, exist_ok=True)                                    
 
 # ログファイル監視処理
 # ==============================================================================================================
-print("カスタムJoin通知 v0.2")
+print("カスタムJoin通知 v0.3")
 print("----------------------------------------------------------------")
 
 while True:
